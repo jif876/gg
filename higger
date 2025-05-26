@@ -1,0 +1,35 @@
+import pygame
+pygame.init()
+WIDTH,HEIGHT = 750, 500
+screen = pygame.display.set_mode(( WIDTH, HEIGHT)) 
+pygame.display.update()
+
+candy_crush=pygame.image.load("pic.png")
+subway_surfers=pygame.image.load("subway.png")
+maze_runner=pygame.image.load("maze_run.png")
+ludo=pygame.image.load("dont.png")
+screen.blit(candy_crush,(200,50))
+screen.blit(subway_surfers,(200,150))
+screen.blit(maze_runner,(200,250))
+screen.blit(ludo,(200,350))
+
+font= pygame.font.SysFont("Times New Roman", 30)
+dont_know_text = font.render("candy crush", True, (255, 255, 255))
+dont_know_texw = font.render("ludo", True, (255, 255, 255))
+dont_know_texa = font.render("subway_surfers", True, (255, 255, 255))
+dont_know_texh = font.render("maze_runner", True, (255, 255, 255))
+screen.blit(dont_know_text, (300, 100))
+screen.blit(dont_know_texw, (300, 400))
+screen.blit(dont_know_texa, (300, 200))
+screen.blit(dont_know_texh, (300, 300))
+running = True
+while running:
+    for event in pygame.event.get():
+         if event.type==pygame.MOUSEBUTTONDOWN:
+            pos= pygame.mouse.get_pos()
+            pygame.draw.circle(screen,(0,0,255),pos,20)
+            
+         if event.type == pygame.QUIT:
+            # If the user clicks the close button, exit the game
+            running = False
+    pygame.display.update()
